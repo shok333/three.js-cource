@@ -9,7 +9,6 @@ const NativeRenderer = () => {
   const [fov, fovChange] = useState(50);
   const [near, nearChange] = useState(1);
   const [far, farChange] = useState(2000);
-  const [cameraZ, cameraZChange] = useState(0);
   const [aspect, aspectChange] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -23,10 +22,9 @@ const NativeRenderer = () => {
         aspect,
         near,
         far,
-        cameraZ,
       });
     }
-  }, [aspect, near, far, cameraZ]);
+  }, [aspect, near, far]);
 
   useEffect(() => {
     if (three.current) {
@@ -51,12 +49,6 @@ const NativeRenderer = () => {
       three.current.farChange(far);
     }
   }, [far]);
-
-  useEffect(() => {
-    if (three.current) {
-      three.current.cameraZChange(cameraZ);
-    }
-  }, [cameraZ]);
 
   return (
     <div>
@@ -105,15 +97,6 @@ const NativeRenderer = () => {
             min={0}
             max={2000}
             onChange={(value) => farChange(value)}
-          />
-        </div>
-        <div>
-          <span>camera Z</span>
-          <Slider
-            value={cameraZ}
-            min={0}
-            max={2000}
-            onChange={(value) => cameraZChange(value)}
           />
         </div>
       </div>

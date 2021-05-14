@@ -112,13 +112,6 @@ class Three {
 
     this.render();
   }
-
-  cameraZChange(cameraZ) {
-    this.camera.position.z = cameraZ;
-    this.camera.updateProjectionMatrix();
-
-    this.render();
-  }
 }
 
 export default Three;
