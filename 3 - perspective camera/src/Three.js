@@ -12,7 +12,7 @@ class Three {
   constructor({canvasContainer, aspect, near, cameraZ, far}) {
     this.initScene();
     this.initCamera(aspect, near, far, cameraZ);
-    this.initCameraHelper();
+    // this.initCameraHelper();
     this.initRenderer(canvasContainer);
     this.initOrbitControls();
     this.renderRect();
